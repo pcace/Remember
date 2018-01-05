@@ -1,0 +1,7 @@
+//GPS_Tracker:
+
+//join nmea logs:
+cat *.bin.log > added.log
+
+//Convert Nmea string to kml
+gpsbabel -w -t -i nmea -f nmea.log -x track,course,speed,title=GPS LOG #%Y%m%d -x duplicate,location -x position,distance=5M -o kml,track=1,trackdirection=1,units=m -F test_Trk.kml
